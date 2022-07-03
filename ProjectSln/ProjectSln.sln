@@ -5,18 +5,13 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessObject", "BusinessObject", "{1FD75F37-007B-4C94-BCB8-B9F525EE0506}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{32688E21-BCF4-42EE-BC48-ED8F61E7A838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{32688E21-BCF4-42EE-BC48-ED8F61E7A838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E38BD2BA-9DD8-474D-9A9C-F8E91295E765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E38BD2BA-9DD8-474D-9A9C-F8E91295E765}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{0E3DCD33-AB54-41F3-8253-01E01E2065DB}"
-	ProjectSection(SolutionItems) = preProject
-		MemberProvider.cs = MemberProvider.cs
-	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{4B39D989-1905-438D-9280-DD5439A5C1BF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreWinApp", "MyStoreWinApp\MyStoreWinApp.csproj", "{07D57905-FA58-4EF9-BA21-5A853676570A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyStoreWinApp", "MyStoreWinApp\MyStoreWinApp.csproj", "{07D57905-FA58-4EF9-BA21-5A853676570A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyStoreWinApp", "MyStoreWinApp", "{37CD0F46-1A60-4512-980E-FAA18585E8D2}"
 EndProject
@@ -45,7 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{32688E21-BCF4-42EE-BC48-ED8F61E7A838} = {1FD75F37-007B-4C94-BCB8-B9F525EE0506}
 		{E38BD2BA-9DD8-474D-9A9C-F8E91295E765} = {0E3DCD33-AB54-41F3-8253-01E01E2065DB}
-		{4B39D989-1905-438D-9280-DD5439A5C1BF} = {0E3DCD33-AB54-41F3-8253-01E01E2065DB}
 		{07D57905-FA58-4EF9-BA21-5A853676570A} = {37CD0F46-1A60-4512-980E-FAA18585E8D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

@@ -5,3 +5,5 @@
 /.vs
 /ProjectSln/.vs/ProjectSln/v17
 /ProjectSln/BusinessObject/obj
+/ProjectSln/DataAccess/obj
+/ProjectSln/MyStoreWinApp/obj/Debug/net6.0-windows

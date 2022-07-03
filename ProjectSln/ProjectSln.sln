@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E38BD2BA-9DD8-474D-9A9C-F8E91295E765}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{0E3DCD33-AB54-41F3-8253-01E01E2065DB}"
+	ProjectSection(SolutionItems) = preProject
+		MemberProvider.cs = MemberProvider.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{4B39D989-1905-438D-9280-DD5439A5C1BF}"
 EndProject

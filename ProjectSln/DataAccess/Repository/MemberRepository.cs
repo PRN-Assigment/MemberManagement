@@ -89,5 +89,24 @@ namespace DataAccess.MemberRepository
                 return false;
             }
         }
+        //Truong Thanh Trung 
+        public IEnumerable<MemberObject> GetMemberList()
+        {
+            try
+            {
+                IEnumerable<MemberObject> memberObjects = MemberDBContext.Instance.GetMemberLists();
+                return memberObjects;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public bool Login(string Email, string Password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,5 +12,10 @@ namespace DataAccess.Repository
         bool Create(MemberObject mem);
         bool Update(MemberObject mem);
         bool Delete(int MemberID);
+
+
+        MemberObject Get(int MemberID);
+        IEnumerable<MemberObject> GetMemberList();
+        bool Login(string Email, string Password);
     }
 }

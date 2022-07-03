@@ -160,7 +160,7 @@ namespace DataAccess
                 CloseConnection();
             }
         }
-
+        //Truong Thanh Trung 
         public MemberObject GetMemberByID(int id)
         {
             MemberObject member = null;
@@ -200,6 +200,85 @@ namespace DataAccess
 
             return member;
         }
+        //Truong Thanh Trung
+        public IEnumerable<MemberObject> GetMemberLists()
+        {
+            IDataReader dataReader = null;
+            string SQLSelect = "SELECT "
+                                + "MemberID, MemberName, Email, Password, City, Country "
+                                + "FROM "
+                                + "Members";
+            var members = new List<MemberObject>();
+
+            try
+            {
+                dataReader = dataProvider.GetDataReader(SQLSelect, CommandType.Text, out connection);
+                while (dataReader.Read())
+                {
+                    members.Add(new MemberObject
+                    {
+                        MemberID = dataReader.GetInt32(0),
+                        MemberName = dataReader.GetString(1),
+                        Email = dataReader.GetString(2),
+                        Password = dataReader.GetString(3),
+                        City = dataReader.GetString(4),
+                        Country = dataReader.GetString(5)
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //dataReader.Close();
+                CloseConnection();
+            }
+
+            return members;
+        }
+        //Truong Thanh Trung
+        public MemberObject GetMemberByEmail(string email)
+        {
+            MemberObject member = null;
+            IDataReader dataReader = null;
+            string SQLSelect = "SELECT "
+                                + "MemberID, MemberName, Email, Password, City, Country "
+                                + "FROM "
+                                + "Members "
+                                + "WHERE "
+                                + "Email = @Email";
+            try
+            {
+                var param = dataProvider.CreateParameter("@Email", 100, email, DbType.String);
+                dataReader = dataProvider.GetDataReader(SQLSelect, CommandType.Text, out connection, param);
+                if (dataReader.Read())
+                {
+                    member = new MemberObject
+                    {
+                        MemberID = dataReader.GetInt32(0),
+                        MemberName = dataReader.GetString(1),
+                        Email = dataReader.GetString(2),
+                        Password = dataReader.GetString(3),
+                        City = dataReader.GetString(4),
+                        Country = dataReader.GetString(5)
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //dataReader.Close();
+                CloseConnection();
+            }
+
+            return member;
+        }
+
 
     }
 }

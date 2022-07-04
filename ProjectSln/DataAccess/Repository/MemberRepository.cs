@@ -25,10 +25,7 @@ namespace DataAccess.MemberRepository
             }
         }
 
-        private MemberObject GetByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         //Mai Quang Khai
         public bool Create(MemberObject mem)
@@ -107,6 +104,36 @@ namespace DataAccess.MemberRepository
         public bool Login(string Email, string Password)
         {
             throw new NotImplementedException();
+        }
+
+
+        //Nguyen Tan Trung
+        public MemberObject GetByEmail(string email)
+        {
+            MemberObject mem = new MemberObject();
+            mem = MemberDBContext.Instance.GetMemberByEmail(email);
+            return mem;
+        }
+        //Nguyen Tan Trung
+        public List<MemberObject> SearchByName(string name)
+        {
+            List<MemberObject> result = new List<MemberObject>();
+            result = MemberDBContext.Instance.GetMemberByName(name);
+            return result;
+        }
+        //Nguyen Tan Trung
+        public List<MemberObject> SearchByCity(string city)
+        {
+            List<MemberObject> result = new List<MemberObject>();
+            result = MemberDBContext.Instance.GetMemberByCity(city);
+            return result;
+        }
+        //Nguyen Tan Trung
+        public List<MemberObject> SearchByCountry(string country)
+        {
+            List<MemberObject> result = new List<MemberObject>();
+            result = MemberDBContext.Instance.GetMemberByCity(country);
+            return result;
         }
     }
 }

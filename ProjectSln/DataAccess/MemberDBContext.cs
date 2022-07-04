@@ -280,6 +280,137 @@ namespace DataAccess
         }
 
 
+        public List<MemberObject> GetMemberByName(string name)
+        {
+            MemberObject member = null;
+            List<MemberObject> result = new List<MemberObject>();
+            IDataReader dataReader = null;
+            string SQLSelect = "SELECT "
+                                + "MemberID, MemberName, Email, Password, City, Country "
+                                + "FROM "
+                                + "Members "
+                                + "WHERE "
+                                + "MemberName LIKE @MemberName";
+            try
+            {
+                var param = dataProvider.CreateParameter("@MemberName", 100, "%" + name + "%", DbType.String);
+                dataReader = dataProvider.GetDataReader(SQLSelect, CommandType.Text, out connection, param);
+                while (dataReader.Read())
+                {
+                    member = new MemberObject
+                    {
+                        MemberID = dataReader.GetInt32(0),
+                        MemberName = dataReader.GetString(1),
+                        Email = dataReader.GetString(2),
+                        Password = dataReader.GetString(3),
+                        City = dataReader.GetString(4),
+                        Country = dataReader.GetString(5)
+                    };
+
+                    result.Add(member);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //dataReader.Close();
+                CloseConnection();
+            }
+
+            return result;
+        }
+
+        //Nguyen Tan Trung
+        public List<MemberObject> GetMemberByCity(string city)
+        {
+            MemberObject member = null;
+            List<MemberObject> result = new List<MemberObject>();
+            IDataReader dataReader = null;
+            string SQLSelect = "SELECT "
+                                + "MemberID, MemberName, Email, Password, City, Country "
+                                + "FROM "
+                                + "Members "
+                                + "WHERE "
+                                + "City LIKE @City";
+            try
+            {
+                var param = dataProvider.CreateParameter("@City", 100, "%" + city + "%", DbType.String);
+                dataReader = dataProvider.GetDataReader(SQLSelect, CommandType.Text, out connection, param);
+                while (dataReader.Read())
+                {
+                    member = new MemberObject
+                    {
+                        MemberID = dataReader.GetInt32(0),
+                        MemberName = dataReader.GetString(1),
+                        Email = dataReader.GetString(2),
+                        Password = dataReader.GetString(3),
+                        City = dataReader.GetString(4),
+                        Country = dataReader.GetString(5)
+                    };
+
+                    result.Add(member);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //dataReader.Close();
+                CloseConnection();
+            }
+
+            return result;
+        }
+        //Nguyen Tan Trung
+        public List<MemberObject> GetMemberByCountry(string country)
+        {
+            MemberObject member = null;
+            List<MemberObject> result = new List<MemberObject>();
+            IDataReader dataReader = null;
+            string SQLSelect = "SELECT "
+                                + "MemberID, MemberName, Email, Password, City, Country "
+                                + "FROM "
+                                + "Members "
+                                + "WHERE "
+                                + "Country LIKE @Country";
+            try
+            {
+                var param = dataProvider.CreateParameter("@Country", 100, "%" + country + "%", DbType.String);
+                dataReader = dataProvider.GetDataReader(SQLSelect, CommandType.Text, out connection, param);
+                while (dataReader.Read())
+                {
+                    member = new MemberObject
+                    {
+                        MemberID = dataReader.GetInt32(0),
+                        MemberName = dataReader.GetString(1),
+                        Email = dataReader.GetString(2),
+                        Password = dataReader.GetString(3),
+                        City = dataReader.GetString(4),
+                        Country = dataReader.GetString(5)
+                    };
+
+                    result.Add(member);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //dataReader.Close();
+                CloseConnection();
+            }
+
+            return result;
+        }
+
+
     }
 }
 

@@ -103,7 +103,14 @@ namespace DataAccess.MemberRepository
 
         public bool Login(string Email, string Password)
         {
-            throw new NotImplementedException();
+            if (Email == null || Password == null)
+            {
+                return false;
+            }
+            else
+            {
+                return MemberDBContext.Instance.Login(Email, Password);
+            }
         }
 
 
@@ -132,7 +139,7 @@ namespace DataAccess.MemberRepository
         public List<MemberObject> SearchByCountry(string country)
         {
             List<MemberObject> result = new List<MemberObject>();
-            result = MemberDBContext.Instance.GetMemberByCity(country);
+            result = MemberDBContext.Instance.GetMemberByCountry(country);
             return result;
         }
     }

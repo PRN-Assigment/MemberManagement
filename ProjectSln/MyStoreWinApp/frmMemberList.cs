@@ -1,4 +1,4 @@
-using BusinessObject;
+﻿using BusinessObject;
 using DataAccess;
 using DataAccess.MemberRepository;
 using System;
@@ -41,7 +41,7 @@ namespace MyStoreWinApp
         {
             frmMemberDetail frmMember = new frmMemberDetail
             {
-                flag = false
+                flag = false          
             };
             frmMember.Show();
         }
@@ -49,13 +49,12 @@ namespace MyStoreWinApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             repository = new MemberRepository();
-
-            try
+            
+             try
             {
                 MemberObject target = GetMemberObject();
                 repository.Delete(target.MemberID);
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -66,7 +65,7 @@ namespace MyStoreWinApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             repository = new MemberRepository();
-
+            
             try
             {
                 if (txtMemberName.Text.Trim().Equals("")) throw new Exception("Name cannot be empty!");
@@ -79,21 +78,20 @@ namespace MyStoreWinApp
                 repository.Update(member);
 
                 LoadMemberList(repository.GetMemberList().ToList());
-            }
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
         }
 
-
+        
 
         private void LoadMemberList(List<MemberObject> list)
         {
             try
             {
-
+                
                 source = new BindingSource();
                 source.DataSource = list;
 
@@ -113,12 +111,11 @@ namespace MyStoreWinApp
                 dgvMemberList.DataSource = source;
 
 
-                if (list.Count() == 0)
+                if(list.Count() == 0)
                 {
                     ClearText();
                     btnDelete.Enabled = false;
-                }
-                else
+                } else
                 {
                     btnDelete.Enabled = true;
                 }
@@ -152,8 +149,7 @@ namespace MyStoreWinApp
                     Country = txtCountry.Text
                 };
 
-            }
-            catch (Exception ex)
+            } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
